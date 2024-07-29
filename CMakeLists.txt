@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(otc LANGUAGES C VERSION 0.0.1 DESCRIPTION "OTC Overlay Trusted Tiny Coin Biblothek")
+project(otc LANGUAGES C VERSION 0.0.1 DESCRIPTION "OTC Overlay Trusted Tiny Coin base libary")
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 add_library(otc src/main.c)
