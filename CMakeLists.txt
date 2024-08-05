@@ -22,12 +22,15 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(LIBRARY_SOURCES
     src/ndbenadetta.cpp
+    src/ndbenadetta_block_entry.cpp
 )
 
 add_library(ndbenadetta ${LIBRARY_SOURCES}) # A library
 set_target_properties(ndbenadetta PROPERTIES PREFIX "") # Remove the lib prefix
 target_include_directories(ndbenadetta PUBLIC ${CMAKE_SOURCE_DIR}/include ${CMAKE_BINARY_DIR}/include)
 
+find_package(OpenSSL REQUIRED)
+target_link_libraries(ndbenadetta OpenSSL::SSL)
 
 install(TARGETS ndbenadetta
     ARCHIVE DESTINATION lib
