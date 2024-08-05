@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ndbenadetta {
+namespace Benadetta {
     [Serializable]
     public enum TraversOrder {
         Preorder,
