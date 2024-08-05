@@ -1,15 +1,43 @@
 cmake_minimum_required(VERSION 3.9)
-project(node-otc LANGUAGES C VERSION 0.0.1 DESCRIPTION "OTC Overlay Trusted Tiny Coin Biblothek")
-include(GNUInstallDirs)
-add_library(node-otc SHARED src/node-otc.c)
-set_target_properties(node-otc PROPERTIES
-    VERSION ${PROJECT_VERSION}
-    SOVERSION ${PROJECT_VERSION_MAJOR}
-    PUBLIC_HEADER include/node-otc.h)
-configure_file(node-otc.pc.in node-otc.pc @ONLY)
-target_include_directories(node-otc PRIVATE .)
-install(TARGETS node-otc
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
-install(FILES ${CMAKE_BINARY_DIR}/node-otc.pc
-    DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/pkgconfig)
+
+project(ndbenadetta)
+
+set(ndbenadetta_VERSION_MAJOR 0)
+set(ndbenadetta_VERSION_MINOR 1)
+set(ndbenadetta_VERSION_PATCH 0)
+set(ndbenadetta_VERSION "${ndbenadetta_VERSION_MAJOR}.${ndbenadetta_VERSION_MINOR}.${ndbenadetta_VERSION_PATCH}")
+
+set(PROJ_NAME "\"ndbenadetta\"") 
+set(PROJECT_DESCRIPTION "\"BENADETTA OTC Overlay Trusted Tiny Coin Biblothek\"")
+
+
+configure_file(include/config.hpp.in
+    ${CMAKE_BINARY_DIR}/include/config.hpp
+)
+
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+
+set(LIBRARY_SOURCES
+    src/ndbenadetta.cpp
+)
+
+add_library(ndbenadetta ${LIBRARY_SOURCES}) # A library
+set_target_properties(ndbenadetta PROPERTIES PREFIX "") # Remove the lib prefix
+target_include_directories(ndbenadetta PUBLIC ${CMAKE_SOURCE_DIR}/include ${CMAKE_BINARY_DIR}/include)
+
+
+install(TARGETS ndbenadetta
+    ARCHIVE DESTINATION lib
+    LIBRARY DESTINATION lib
+    RUNTIME DESTINATION bin
+)
+
+# Install the project header files into the appropriate directory
+install(DIRECTORY include/ DESTINATION include PATTERN "config.hpp.in" EXCLUDE) # Install our main header files
+install(FILES ${CMAKE_BINARY_DIR}/include/config.hpp DESTINATION include/benadetta/) # Install our configuration file
+
+# Install the project's extra files
+install(FILES README.md LICENSE DESTINATION share/benadetta/)
