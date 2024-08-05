@@ -1,7 +1,2 @@
-#include <stdio.h>
+#include "include/node-otc.h"
 
-int main()
-{
-    printf("Hello World!\n");
-    return 0;
-}
