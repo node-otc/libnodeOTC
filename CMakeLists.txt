@@ -2,10 +2,10 @@ cmake_minimum_required(VERSION 3.9)
 
 project(ndbenadetta)
 
-set(ndbenadetta_VERSION_MAJOR 0)
-set(ndbenadetta_VERSION_MINOR 1)
-set(ndbenadetta_VERSION_PATCH 0)
-set(ndbenadetta_VERSION "${ndbenadetta_VERSION_MAJOR}.${ndbenadetta_VERSION_MINOR}.${ndbenadetta_VERSION_PATCH}")
+set(NDBENADETTA_VERSION_MAJOR 0)
+set(NDBENADETTA_VERSION_MINOR 1)
+set(NDBENADETTA_VERSION_PATCH 0)
+set(NDBENADETTA_VERSION "${NDBENADETTA_VERSION_MAJOR}.${NDBENADETTA_VERSION_MINOR}.${NDBENADETTA_VERSION_PATCH}")
 
 set(PROJ_NAME "\"ndbenadetta\"") 
 set(PROJECT_DESCRIPTION "\"BENADETTA OTC Overlay Trusted Tiny Coin Biblothek\"")
